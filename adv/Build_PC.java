@@ -1,7 +1,7 @@
 
 
 // cpu gpu power supply motherboard dram  SSD case
-// remove add sum 
+// remove add sum printlist 
 
 public class Build_PC {
     public static void main(String []args) {

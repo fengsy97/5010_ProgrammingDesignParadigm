@@ -14,6 +14,8 @@ public class Controller {
         this.input = new Scanner(input);
     }
     public void main_flow(){
+        model.setData("Welcome to This PC Building Program, let's build your own pc");
+        view.View_Print(this.model.getData());
         while(true){
             model.setData("Welcome to This Program, please input your option:");
             view.View_Print(this.model.getData());
@@ -23,6 +25,7 @@ public class Controller {
                 case "E":
                     model.setData(option);
                     view.View_Print(this.model.getData());
+                    view.View_Print(this.model.getCPU());
                     break;
                 case "Q":
                     model.setData("Quit success");
