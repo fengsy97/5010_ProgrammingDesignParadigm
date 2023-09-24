@@ -9,7 +9,10 @@ public class View {
         this.streamout.println(s);
     }
     public void Error_Print() {
-        this.streamout.println("\nInvalid input. Try again: "); 
+        this.streamout.println("Your input is invalid."); 
+    }
+    public void ID_Print() {
+        this.streamout.println("Please enter the ID you want to choose."); 
     }
 
 }
