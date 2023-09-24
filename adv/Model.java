@@ -22,28 +22,32 @@ public class Model {
     public Model(){
         this.database = new HashMap<String, List<String> >();
         this.chosen = new HashMap<String, Integer>();
-        this.components = new String[] {"CPU", "GPU", "Power supply", "Ram", "SSD","Motherboard" ,"Case", "Cooler" };
+        this.components = new String[] {"CPU", "GPU", "PowerSupply", "Ram", "Storage","Motherboard" ,"Case", "Cooler" };
         this.clear_chosen();
         // System.out.println(Arrays.toString(this.components));
         // for(int i = 0; i < this.components.length; i++){
         //     this.chosen.put(this.components[i], -1);
         // }
-        Get_CPUs();
+        Get_Data();
     }
-    public void Get_CPUs(){
-        BufferedReader reader;
-        List<String> CPUs = new ArrayList<>();
-        try{
-            reader = new BufferedReader(new FileReader("./CPU.txt"));
-            String line = reader.readLine();
-            while(line  != null){
-                CPUs.add(line);
-                line = reader.readLine();
+    public void Get_Data(){
+        String data_add = "./dataset/";
+        for(int i = 0; i < this.components.length; i++){
+            BufferedReader reader;
+            List<String> Tmp = new ArrayList<>();
+            String filename = data_add + this.components[i] + ".txt";
+            try{
+                reader = new BufferedReader(new FileReader(filename));
+                String line = reader.readLine();
+                while(line  != null){
+                    Tmp.add(line);
+                    line = reader.readLine();
+                }
+            } catch (IOException e){
+                e.printStackTrace();
             }
-        } catch (IOException e){
-            e.printStackTrace();
+            this.database.put(this.components[i], Tmp);
         }
-        this.database.put("CPU", CPUs);
     }
     public String getData(){
         return this.data;

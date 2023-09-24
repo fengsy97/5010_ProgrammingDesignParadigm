@@ -1,0 +1,4 @@
+Deepcool AK620	69
+Noctua NH-L9i	44
+Noctua NH-D15	92
+Cooler Master Hyper212	25

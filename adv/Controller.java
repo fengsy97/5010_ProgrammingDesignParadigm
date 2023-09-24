@@ -78,8 +78,8 @@ public class Controller {
                 view.View_Print(this.model.getStatus());
                 choose_component();
                 view.View_Print(this.model.getStatus());
-                clear_chosen();
-                view.View_Print(this.model.getStatus());
+                // clear_chosen();
+                // view.View_Print(this.model.getStatus());
                 return ;
             }
             String option = this.input.next();
