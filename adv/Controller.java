@@ -13,6 +13,9 @@ public class Controller {
         this.view = view;
         this.input = new Scanner(input);
     }
+    public void choose_component(String component){
+
+    }
     public void main_flow(){
         model.setData("Welcome to This PC Building Program, let's build your own pc");
         view.View_Print(this.model.getData());
@@ -20,12 +23,15 @@ public class Controller {
             model.setData("Welcome to This Program, please input your option:");
             view.View_Print(this.model.getData());
             // view.showOptions();
+            if(true){
+                view.View_Print(this.model.getStatus());
+                return ;
+            }
             String option = this.input.next();
             switch (option) {
                 case "E":
                     model.setData(option);
                     view.View_Print(this.model.getData());
-                    view.View_Print(this.model.getCPU());
                     break;
                 case "Q":
                     model.setData("Quit success");
@@ -34,6 +40,7 @@ public class Controller {
                 default:
                     view.Error_Print();
             }
+            break;
 
         }
     }
