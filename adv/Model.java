@@ -68,6 +68,46 @@ public class Model {
         }
         return Components;
     }
+    public boolean Conflict_CPU(){
+        if(this.chosen.get("CPU") == -1 || this.chosen.get("Motherboard") == -1){
+            return false;
+        }
+        String CPU =  this.database.get("CPU").get(this.chosen.get("CPU")).split(" ")[0];
+        String Motherboard =  this.database.get("Motherboard").get(this.chosen.get("Motherboard")).split("\t")[2];
+        if(CPU == Motherboard){return false;}
+        return true;
+    }
+    public boolean Conflict_Power(){
+        if(this.chosen.get("PowerSupply") == -1){
+            return false;
+        }
+        String PowerSupply = this.database.get("PowerSupply").get(this.chosen.get("PowerSupply")).split(" ")[2];
+        int Limit = Integer.parseInt(PowerSupply);
+        int Power = 0;
+        if(this.chosen.get("CPU") >= 0){
+            String CPU =  this.database.get("CPU").get(this.chosen.get("CPU")).split(" ")[2];
+            Power += Integer.parseInt(CPU);
+        }
+        if(this.chosen.get("GPU") >= 0){
+            String GPU =  this.database.get("GPU").get(this.chosen.get("GPU")).split(" ")[2];
+            Power += Integer.parseInt(GPU);
+        }
+        if(Limit * 0.7 > Power){
+            return false;
+        }
+        return true;
+    }
+    public String get_detail(int ID){
+        String Detail = "";
+        String Type = this.components[ID];
+        if(ID < 3){ Detail += "Type\tPrice\tPower\n";}
+        else{Detail += "Type\tPrice\n";}
+        for (int i = 0; i < this.database.get(Type).size(); i++){
+            Detail += this.database.get(Type).get(i);
+            Detail += "\n";
+        }
+        return Detail;
+    }
     public String getStatus(){
         String Status = "\n******hardware list******\n";
         int Cost = 0;

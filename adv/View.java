@@ -17,9 +17,9 @@ public class View {
     
     public void Options_Print(){
         String statement = "\nPlease choose from the following options by entering its id :\n";
-        statement += "0. Add a computer hardware part.\n";
-        statement += "1. Remove a computer hardware part.\n";
-        statement += "2. Show a list of hardware you currently have.\n";
+        statement += "0. Add a computer hardware.\n";
+        statement += "1. Remove a computer hardware.\n";
+        statement += "2. Show the list of hardware you currently have.\n";
         statement += "3. Clear the list of hardware you currently have.\n";
         statement += "4. Display detailed hardware parameters in the database.\n";
         statement += "5. Show whether there are conflicts between the currently selected hardware.\n";
@@ -44,6 +44,12 @@ public class View {
     }
     public void Ask_Options() {
         this.streamout.println("\nPlease enter the option's id you want. If you want to know what options you have, please enter 7."); 
+    }
+    public void Conflict_Power(){
+        this.streamout.println("Warning : The sum of GPU and CPU power consumption exceeds the safe range."); 
+    }
+    public void Conflict_Cpu(){
+        this.streamout.println("Warning : CPU and motherboard are not compatible."); 
     }
 
 }

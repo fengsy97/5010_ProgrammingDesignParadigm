@@ -83,6 +83,22 @@ public class Controller {
         if(ID < 0){return;}
         view.View_Print(this.model.getRecommend(ID));
     }
+    public void get_conflict(){
+        boolean Conflict_CPU = this.model.Conflict_CPU();
+        boolean Conflict_Power = this.model.Conflict_Power();
+        if(Conflict_CPU){view.Conflict_Cpu();}
+        if(Conflict_Power){view.Conflict_Power();}
+        if(Conflict_Power || Conflict_CPU){return;}
+        // model.setData("There is no conflict.");
+        view.View_Print("There is no conflict in this hardware list.");
+    }
+
+    public void get_detail(){
+        int ID = ID_component();
+        if(ID < 0){return;}
+        view.View_Print(this.model.get_detail(ID));
+        return;
+    }
 
     // Check the details of each part
     // public void Check_database(){
@@ -110,10 +126,10 @@ public class Controller {
                     clear_chosen();
                     break;
                 case "4":
-                    clear_chosen();
+                    get_detail();
                     break;
                 case "5":
-                    clear_chosen();
+                    get_conflict();
                     break;
                 case "6":
                     view.Options_Print();
