@@ -20,12 +20,12 @@ public class View {
         statement += "0. Add a computer hardware.\n";
         statement += "1. Remove a computer hardware.\n";
         statement += "2. Show the list of hardware you currently have.\n";
-        statement += "3. Clear the list of hardware you currently have.\n";
+        statement += "3. Recommend some hardware combinations.\n";
         statement += "4. Display detailed hardware parameters in the database.\n";
         statement += "5. Show whether there are conflicts between the currently selected hardware.\n";
         statement += "6. Show options.\n";
         statement += "7. Show the rules to follow when choosing hardware.\n";
-        statement += "8. Recommend some hardware combinations.\n";
+        statement += "8. Clear the list of hardware you currently have.\n";
         statement += "9. Quit.";
         this.streamout.println(statement);
     }
@@ -43,7 +43,7 @@ public class View {
         this.streamout.println(statement);
     }
     public void Ask_Options() {
-        this.streamout.println("\nPlease enter the option's id you want. If you want to know what options you have, please enter 7."); 
+        this.streamout.println("\nPlease enter the option's id you want. If you want to know what options you have, please enter 6."); 
     }
     public void Conflict_Power(){
         this.streamout.println("Warning : The sum of GPU and CPU power consumption exceeds the safe range."); 
