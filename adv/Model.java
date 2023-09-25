@@ -88,6 +88,37 @@ public class Model {
         Status += "Total cost :" + Cost +"$\n";
         return Status;
     }
+    public String getRecommend(int Type){
+        // {"CPU", "GPU", "PowerSupply", "Ram", "Storage","Motherboard" ,"Case", "Cooler" };
+        String Status = "\n******Recommend hardware list******\n";
+        int Recommend[];
+        if(Type == 0){
+            Recommend = new int[] {7,4,0,0,2,4,1,3};
+        }
+        else if(Type == 1){
+            Recommend = new int[] {1,3,2,1,0,0,0,0};;
+        }
+        else{
+            Recommend = new int[] {5,3,1,2,2,2,2,2};;
+        }
+        int Cost = 0;
+        for(int i = 0; i < this.components.length; i++){
+            Status += this.components[i];
+            int rank = Recommend[i];
+            if(rank < 0){
+                Status += ": not chosen\n";
+            }
+            else{
+                String[] parts = this.database.get(this.components[i]).get(rank).split("\t");
+                Status += ": ";
+                Status += parts[0];
+                Cost += Integer.parseInt(parts[1]);
+                Status += "\n";
+            }
+        }
+        Status += "Total cost :" + Cost +"$\n";
+        return Status;
+    }
     public String getTypes(int ID){
         String Type = this.components[ID];
         String Types = "";
