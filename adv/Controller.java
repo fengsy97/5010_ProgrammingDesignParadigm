@@ -63,8 +63,7 @@ public class Controller {
     }
     public void clear_chosen(){
         this.model.clear_chosen();
-        model.setData("Clear successfully.");
-        view.View_Print(this.model.getData());
+        view.View_Print("Clear successfully.");
     }
     public void get_advise(){
         view.Recommend();
@@ -89,7 +88,6 @@ public class Controller {
         if(Conflict_CPU){view.Conflict_Cpu();}
         if(Conflict_Power){view.Conflict_Power();}
         if(Conflict_Power || Conflict_CPU){return;}
-        // model.setData("There is no conflict.");
         view.View_Print("There is no conflict in this hardware list.");
     }
 
@@ -100,11 +98,6 @@ public class Controller {
         return;
     }
 
-    // Check the details of each part
-    // public void Check_database(){
-    //     view.ID_Print();
-    //     String result  = this.model.getComponents();
-    // }
     public void main_flow(){
         model.setData("Welcome to This PC Building Program, let's build your own pc");
         view.View_Print(this.model.getData());
@@ -123,7 +116,7 @@ public class Controller {
                     view.View_Print(this.model.getStatus());
                     break;
                 case "3":
-                    clear_chosen();
+                    get_advise();
                     break;
                 case "4":
                     get_detail();
@@ -138,7 +131,8 @@ public class Controller {
                     view.Rules_Print();
                     break;
                 case "8":
-                    get_advise();
+                    
+                    clear_chosen();
                     break;
                 case "9":
                     model.setData("Quit success");
