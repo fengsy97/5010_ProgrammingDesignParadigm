@@ -66,6 +66,23 @@ public class Controller {
         model.setData("Clear successfully.");
         view.View_Print(this.model.getData());
     }
+    public void get_advise(){
+        view.Recommend();
+        String option = this.input.next();
+        int ID;
+        try {
+           ID = Integer.parseInt(option);
+        }
+        catch (NumberFormatException e) {
+           ID = -1;
+        }
+        if(ID < 0 || ID > 2 ){
+            view.Error_Print();
+            ID = -1 ;
+        }
+        if(ID < 0){return;}
+        view.View_Print(this.model.getRecommend(ID));
+    }
 
     // Check the details of each part
     // public void Check_database(){
@@ -80,14 +97,17 @@ public class Controller {
             view.Ask_Options();
             String option = this.input.next();
             switch (option) {
-                case "1":
+                case "0":
                     choose_component();
                     break;
-                case "2":
+                case "1":
                     remove_component();
                     break;
-                case "3":
+                case "2":
                     view.View_Print(this.model.getStatus());
+                    break;
+                case "3":
+                    clear_chosen();
                     break;
                 case "4":
                     clear_chosen();
@@ -96,18 +116,15 @@ public class Controller {
                     clear_chosen();
                     break;
                 case "6":
-                    clear_chosen();
+                    view.Options_Print();
                     break;
                 case "7":
-                    view.Options_Print();
+                    view.Rules_Print();
                     break;
                 case "8":
-                    view.Options_Print();
+                    get_advise();
                     break;
                 case "9":
-                    view.Options_Print();
-                    break;
-                case "10":
                     model.setData("Quit success");
                     view.View_Print(this.model.getStatus());
                     return;
