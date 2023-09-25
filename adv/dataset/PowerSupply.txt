@@ -1,4 +1,4 @@
 Thermaltake Smart 500w	40	500
 Corsair Platinum 1200w	225	1200
 Corsair RM850w	139	850
-EVGA 600w GD	76	600
+EVGA GD600w	76	600
