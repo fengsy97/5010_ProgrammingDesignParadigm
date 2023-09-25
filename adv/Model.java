@@ -69,7 +69,7 @@ public class Model {
         return Components;
     }
     public String getStatus(){
-        String Status = "\n******Status******\n";
+        String Status = "\n******hardware list******\n";
         int Cost = 0;
         for(int i = 0; i < this.components.length; i++){
             Status += this.components[i];

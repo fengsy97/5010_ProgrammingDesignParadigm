@@ -63,6 +63,8 @@ public class Controller {
     }
     public void clear_chosen(){
         this.model.clear_chosen();
+        model.setData("Clear successfully.");
+        view.View_Print(this.model.getData());
     }
 
     // Check the details of each part
@@ -73,30 +75,45 @@ public class Controller {
     public void main_flow(){
         model.setData("Welcome to This PC Building Program, let's build your own pc");
         view.View_Print(this.model.getData());
+        view.Options_Print();
         while(true){
-            if(true){
-                view.View_Print(this.model.getStatus());
-                choose_component();
-                view.View_Print(this.model.getStatus());
-                // clear_chosen();
-                // view.View_Print(this.model.getStatus());
-                return ;
-            }
+            view.Ask_Options();
             String option = this.input.next();
             switch (option) {
-                case "E":
-                    model.setData(option);
-                    view.View_Print(this.model.getData());
+                case "1":
+                    choose_component();
                     break;
-                case "Q":
+                case "2":
+                    remove_component();
+                    break;
+                case "3":
+                    view.View_Print(this.model.getStatus());
+                    break;
+                case "4":
+                    clear_chosen();
+                    break;
+                case "5":
+                    clear_chosen();
+                    break;
+                case "6":
+                    clear_chosen();
+                    break;
+                case "7":
+                    view.Options_Print();
+                    break;
+                case "8":
+                    view.Options_Print();
+                    break;
+                case "9":
+                    view.Options_Print();
+                    break;
+                case "10":
                     model.setData("Quit success");
-                    view.View_Print(this.model.getData());
+                    view.View_Print(this.model.getStatus());
                     return;
                 default:
                     view.Error_Print();
             }
-            break;
-
         }
     }
 }
