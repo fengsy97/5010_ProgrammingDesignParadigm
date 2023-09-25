@@ -24,10 +24,6 @@ public class Model {
         this.chosen = new HashMap<String, Integer>();
         this.components = new String[] {"CPU", "GPU", "PowerSupply", "Ram", "Storage","Motherboard" ,"Case", "Cooler" };
         this.clear_chosen();
-        // System.out.println(Arrays.toString(this.components));
-        // for(int i = 0; i < this.components.length; i++){
-        //     this.chosen.put(this.components[i], -1);
-        // }
         Get_Data();
     }
     public void Get_Data(){
@@ -81,15 +77,15 @@ public class Model {
         if(this.chosen.get("PowerSupply") == -1){
             return false;
         }
-        String PowerSupply = this.database.get("PowerSupply").get(this.chosen.get("PowerSupply")).split(" ")[2];
+        String PowerSupply = this.database.get("PowerSupply").get(this.chosen.get("PowerSupply")).split("\t")[2];
         int Limit = Integer.parseInt(PowerSupply);
         int Power = 0;
         if(this.chosen.get("CPU") >= 0){
-            String CPU =  this.database.get("CPU").get(this.chosen.get("CPU")).split(" ")[2];
+            String CPU =  this.database.get("CPU").get(this.chosen.get("CPU")).split("\t")[2];
             Power += Integer.parseInt(CPU);
         }
         if(this.chosen.get("GPU") >= 0){
-            String GPU =  this.database.get("GPU").get(this.chosen.get("GPU")).split(" ")[2];
+            String GPU =  this.database.get("GPU").get(this.chosen.get("GPU")).split("\t")[2];
             Power += Integer.parseInt(GPU);
         }
         if(Limit * 0.7 > Power){
