@@ -17,20 +17,30 @@ public class View {
     
     public void Options_Print(){
         String statement = "\nPlease choose from the following options by entering its id :\n";
-        statement += "1.  Add a computer hardware part.\n";
-        statement += "2.  Remove a computer hardware part.\n";
-        statement += "3.  Show a list of hardware you currently have.\n";
-        statement += "4.  Clear the list of hardware you currently have.\n";
-        statement += "5.  Display detailed hardware parameters in the database.\n";
-        statement += "6.  Show whether there are conflicts between the currently selected hardware.\n";
-        statement += "7.  Show options.\n";
-        statement += "8.  Show the rules to follow when choosing hardware.\n";
-        statement += "9.  Recommend some hardware combinations.\n";
-        statement += "10. Quit.";
+        statement += "0. Add a computer hardware part.\n";
+        statement += "1. Remove a computer hardware part.\n";
+        statement += "2. Show a list of hardware you currently have.\n";
+        statement += "3. Clear the list of hardware you currently have.\n";
+        statement += "4. Display detailed hardware parameters in the database.\n";
+        statement += "5. Show whether there are conflicts between the currently selected hardware.\n";
+        statement += "6. Show options.\n";
+        statement += "7. Show the rules to follow when choosing hardware.\n";
+        statement += "8. Recommend some hardware combinations.\n";
+        statement += "9. Quit.";
         this.streamout.println(statement);
     }
     public void Recommend() {
-        String statement = "";
+        String statement = "Please choose from the following types:\n";
+        statement += "0. Household daily use.\n";
+        statement += "1. Heavy gamer use.\n";
+        statement += "2. Productivity use.\n";
+        this.streamout.println(statement);
+
+    }
+    public void Rules_Print(){
+        String statement = "0. For safety reasons, the sum of the power consumption of the GPU and CPU should be less than 70% of the rated power of the power supply.\n";
+        statement += "Intel CPUs use Intel corresponding motherboards, AMD CPUs use Intel corresponding motherboards.";
+        this.streamout.println(statement);
     }
     public void Ask_Options() {
         this.streamout.println("\nPlease enter the option's id you want. If you want to know what options you have, please enter 7."); 
