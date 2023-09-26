@@ -14,7 +14,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Model {
-    private String data;
+    // private String data;
     private Map<String, List<String>> database;
     private Map<String, Integer> chosen;
     // private List<String> components;
@@ -44,15 +44,6 @@ public class Model {
             }
             this.database.put(this.components[i], Tmp);
         }
-    }
-    public String getData(){
-        return this.data;
-    }
-    public void setData(String data){
-        this.data = data;
-    }
-    public String getCPU(){
-        return this.database.get("CPU").get(0);
     }
     public String getComponents(){
         String Components = "";

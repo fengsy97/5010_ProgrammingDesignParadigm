@@ -99,8 +99,7 @@ public class Controller {
     }
 
     public void main_flow(){
-        model.setData("Welcome to This PC Building Program, let's build your own pc");
-        view.View_Print(this.model.getData());
+        view.View_Print("Welcome to This PC Building Program, let's build your own pc");
         view.Options_Print();
         while(true){
             view.Ask_Options();
@@ -131,12 +130,10 @@ public class Controller {
                     view.Rules_Print();
                     break;
                 case "8":
-                    
                     clear_chosen();
                     break;
                 case "9":
-                    model.setData("Quit success");
-                    view.View_Print(this.model.getStatus());
+                    view.View_Print("Quit success");
                     return;
                 default:
                     view.Error_Print();
